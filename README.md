@@ -35,3 +35,10 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # AI-Interview-Saas
+
+<a href="#"
+          className="block animate-background rounded-full bg-gradient-to-r from-red-600 via-green-600 to-blue-600 bg-[length:400%_400%] p-1">
+          <span className="block rounded-full bg-white text-black px-10 py-4 text-lg font-medium">
+            Hello there 👋
+          </span>
+        </a>
