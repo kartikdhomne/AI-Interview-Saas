@@ -1,5 +1,4 @@
-// import { CodeDemo } from "@/components/demo-components-animate-code";
-// import { StarsBackgroundDemo } from "@/components/demo-components-backgrounds-stars";
+import { CodeDemo } from "@/components/demo-components-animate-code";
 import { AI_TAGS, AVATARS, LOGOS, ROLES, SLOTS } from "@/lib/data";
 import {
   GoldTitle,
@@ -13,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
 // import PricingSection from "@/components/PricingSection";
+import { HoleBackgroundDemo } from "@/components/HoleBackgroundDemo";
 
 function MockUI({ rows = 3 }) {
   const widths = ["w-4/5", "w-3/5", "w-2/5", "w-4/5", "w-1/2"];
@@ -68,10 +68,12 @@ export default function LandingPage() {
     <div className="bg-black overflow-x-hidden">
       {/* HERO */}
       <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-5 px-4 sm:px-8 pt-28 sm:pt-32 pb-20 overflow-hidden">
-        {/* <StarsBackgroundDemo /> */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <HoleBackgroundDemo />
+        </div>
 
         {/* LEFT */}
-        <div className="col-span-full lg:col-span-3 flex flex-col items-center justify-center text-center lg:-rotate-2">
+        <div className="relative z-10 col-span-full lg:col-span-3 flex flex-col items-center justify-center text-center lg:-rotate-2">
           <Badge variant="gold">Powered by AI — Now in Beta</Badge>
 
           <h1 className="font-serif relative text-5xl sm:text-6xl lg:text-7xl tracking-tighter max-w-4xl">
@@ -123,13 +125,13 @@ export default function LandingPage() {
               <strong className="text-stone-400 font-medium">
                 2,400+ engineers
               </strong>{" "}
-              cracked FAANG interviews via Prept
+              cracked FAANG interviews via Preply
             </p>
           </div>
         </div>
 
         {/* RIGHT */}
-        <div className="col-span-full lg:col-span-2 flex items-center justify-center lg:justify-start mt-12 lg:mt-0 lg:rotate-3">
+        <div className="relative z-10 col-span-full lg:col-span-2 flex items-center justify-center lg:justify-start mt-12 lg:mt-0 lg:rotate-3">
           {/* <Image
             src="/hero.png"
             alt="Hero illustration"
@@ -139,7 +141,7 @@ export default function LandingPage() {
             priority
           /> */}
 
-          {/* <CodeDemo duration={30000} writing /> */}
+          <CodeDemo duration={30000} writing />
         </div>
       </section>
 
@@ -330,19 +332,21 @@ export default function LandingPage() {
       {/* CTA */}
       <section className="relative z-10 pb-28 max-w-5xl mx-auto px-6">
         <div className="relative border border-amber-400/20 rounded-3xl px-3 sm:px-16 py-20 bg-linear-to-br from-amber-400/5 text-center overflow-hidden">
-          {/* <StarsBackgroundDemo /> */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <HoleBackgroundDemo />
+          </div>
 
-          <h2 className="font-serif relative text-4xl md:text-5xl leading-tight tracking-tight mb-4">
+          <h2 className="relative z-10 font-serif relative text-4xl md:text-5xl leading-tight tracking-tight mb-4">
             <GrayTitle>Your next interview</GrayTitle>
             <br />
             <GoldTitle>starts here</GoldTitle>
           </h2>
 
-          <p className="relative text-stone-400 font-light text-sm mb-11">
-            Join thousands of engineers already levelling up on Prept.
+          <p className="relative z-10 text-stone-400 font-light text-sm mb-11">
+            Join thousands of engineers already levelling up on Preply.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="relative z-10 flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/onboarding" className="relative">
               <Button variant="gold" size="hero">
                 Get started

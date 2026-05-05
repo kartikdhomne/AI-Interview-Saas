@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "MockedIw",
+  title: "Preply",
   description: "Ai Mock Interview Platform",
 };
 

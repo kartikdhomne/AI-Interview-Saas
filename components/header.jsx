@@ -11,7 +11,7 @@ const Header = () => {
       <Link href="/">
         <Image
           src="/logo-preply.png"
-          alt="Prept Logo"
+          alt="Preply Logo"
           width={100}
           height={100}
           loading="eager"
