@@ -9,6 +9,11 @@ import {
 import { Bot, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+  AvatarGroup,
+  AvatarGroupTooltip,
+} from "@/components/animate-ui/components/animate/avatar-group";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import Link from "next/link";
 // import PricingSection from "@/components/PricingSection";
@@ -73,7 +78,7 @@ export default function LandingPage() {
         </div>
 
         {/* LEFT */}
-        <div className="relative z-10 col-span-full lg:col-span-3 flex flex-col items-center justify-center text-center lg:-rotate-2">
+        <div className="relative z-10 col-span-full lg:col-span-3 flex flex-col items-center justify-center text-center">
           <Badge variant="gold">Powered by AI — Now in Beta</Badge>
 
           <h1 className="font-serif relative text-5xl sm:text-6xl lg:text-7xl tracking-tighter max-w-4xl">
@@ -104,21 +109,73 @@ export default function LandingPage() {
 
           <div className="relative flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-16">
             <div className="flex">
-              {AVATARS.map((av, i) => (
+              {/* {AVATARS.map((av, i) => (
                 <div
                   key={i}
                   className={`w-8 h-8 rounded-full border-2 border-[#0a0a0b] overflow-hidden ${i > 0 ? "-ml-2" : ""
                     }`}
                 >
-                  {/* <Image
+                  <Image
                     src={av.src}
                     alt="user avatar"
                     width={32}
                     height={32}
                     className="w-full h-full object-cover"
-                  /> */}
+                  />
                 </div>
-              ))}
+              ))} */}
+              <AvatarGroup className="flex items-center overflow-visible">
+                {AVATARS.map((avatar, index) => (
+                  <Avatar
+                    key={index}
+                    className={`
+        h-12
+        w-12
+        shrink-0
+        overflow-visible
+        border-2
+        border-white
+        shadow-sm
+        cursor-pointer
+        transition-all
+        duration-300
+        hover:z-20
+        hover:translate-y-[0px]
+        ${index !== 0 ? "-ml-[4px]" : ""}
+      `}
+                  >
+                    <AvatarImage
+                      src={avatar.src}
+                      alt={avatar.tooltip}
+                      className="object-cover"
+                    />
+
+                    <AvatarFallback className="text-sm font-medium">
+                      {avatar.fallback}
+                    </AvatarFallback>
+
+                    <AvatarGroupTooltip
+                      side="top"
+                      align="center"
+                      className="
+          z-[999]
+          mb-2
+          rounded-xl
+          bg-black
+          px-3
+          py-1.5
+          text-sm
+          font-medium
+          text-white
+          shadow-xl
+          whitespace-nowrap
+        "
+                    >
+                      {avatar.name || avatar.fallback}
+                    </AvatarGroupTooltip>
+                  </Avatar>
+                ))}
+              </AvatarGroup>
             </div>
 
             <p className="text-sm text-stone-500 text-center sm:text-left">
@@ -131,7 +188,7 @@ export default function LandingPage() {
         </div>
 
         {/* RIGHT */}
-        <div className="relative z-10 col-span-full lg:col-span-2 flex items-center justify-center lg:justify-start mt-12 lg:mt-0 lg:rotate-3">
+        <div className="relative z-10 col-span-full lg:col-span-2 flex items-center justify-center lg:justify-start mt-12 lg:mt-0">
           {/* <Image
             src="/hero.png"
             alt="Hero illustration"
@@ -151,17 +208,19 @@ export default function LandingPage() {
           Interviewees landed roles at
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-24 px-6">
-          {LOGOS.map((l) => (
-            <Image
-              key={l.alt}
-              src={l.src}
-              alt={l.alt}
-              width={50}
-              height={50}
-              className="h-6 w-auto opacity-60 grayscale"
-            />
-          ))}
+        <div className="relative overflow-hidden py-4">
+          <div className="flex w-max animate-marquee items-center gap-24">
+            {[...LOGOS, ...LOGOS].map((l, index) => (
+              <Image
+                key={`${l.alt}-${index}`}
+                src={l.src}
+                alt={l.alt}
+                width={50}
+                height={50}
+                className="h-6 w-auto shrink-0 opacity-60 grayscale"
+              />
+            ))}
+          </div>
         </div>
       </section>
 
