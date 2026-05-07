@@ -71,7 +71,6 @@ export function BentoCard({ icon, title, desc, children, className = "" }) {
 export default function LandingPage() {
   return (
     <div className="bg-black overflow-x-hidden">
-      {/* HERO */}
       <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-5 px-4 sm:px-8 pt-28 sm:pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <HoleBackgroundDemo />
