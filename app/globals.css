@@ -136,6 +136,7 @@
   animation: background 6s ease infinite;
 }
 
+
 @keyframes marquee {
   from {
     transform: translateX(0%);
@@ -149,3 +150,4 @@
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
+

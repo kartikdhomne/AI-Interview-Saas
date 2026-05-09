@@ -16,8 +16,10 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import Link from "next/link";
-// import PricingSection from "@/components/PricingSection";
+import PricingSection from "@/components/PricingSection";
 import { HoleBackgroundDemo } from "@/components/HoleBackgroundDemo";
+import { PricingTable } from "@clerk/nextjs";
+import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
 
 function MockUI({ rows = 3 }) {
   const widths = ["w-4/5", "w-3/5", "w-2/5", "w-4/5", "w-1/2"];
@@ -108,40 +110,25 @@ export default function LandingPage() {
 
           <div className="relative flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-16">
             <div className="flex">
-              {/* {AVATARS.map((av, i) => (
-                <div
-                  key={i}
-                  className={`w-8 h-8 rounded-full border-2 border-[#0a0a0b] overflow-hidden ${i > 0 ? "-ml-2" : ""
-                    }`}
-                >
-                  <Image
-                    src={av.src}
-                    alt="user avatar"
-                    width={32}
-                    height={32}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))} */}
               <AvatarGroup className="flex items-center overflow-visible">
                 {AVATARS.map((avatar, index) => (
                   <Avatar
                     key={index}
                     className={`
-        h-12
-        w-12
-        shrink-0
-        overflow-visible
-        border-2
-        border-white
-        shadow-sm
-        cursor-pointer
-        transition-all
-        duration-300
-        hover:z-20
-        hover:translate-y-[0px]
-        ${index !== 0 ? "-ml-[4px]" : ""}
-      `}
+                    h-12
+                    w-12
+                    shrink-0
+                    overflow-visible
+                    border-2
+                    border-white
+                    shadow-sm
+                    cursor-pointer
+                    transition-all
+                    duration-300
+                    hover:z-20
+                    hover:translate-y-[0px]
+                    ${index !== 0 ? "-ml-[4px]" : ""}
+                  `}
                   >
                     <AvatarImage
                       src={avatar.src}
@@ -157,18 +144,18 @@ export default function LandingPage() {
                       side="top"
                       align="center"
                       className="
-          z-[999]
-          mb-2
-          rounded-xl
-          bg-black
-          px-3
-          py-1.5
-          text-sm
-          font-medium
-          text-white
-          shadow-xl
-          whitespace-nowrap
-        "
+                      z-[999]
+                      mb-2
+                      rounded-xl
+                      bg-black
+                      px-3
+                      py-1.5
+                      text-sm
+                      font-medium
+                      text-white
+                      shadow-xl
+                      whitespace-nowrap
+                    "
                     >
                       {avatar.name || avatar.fallback}
                     </AvatarGroupTooltip>
@@ -384,23 +371,23 @@ export default function LandingPage() {
           </p>
         </div>
 
-        {/* <PricingSection /> */}
+        <PricingSection />
       </section>
 
       {/* CTA */}
       <section className="relative z-10 pb-28 max-w-5xl mx-auto px-6">
         <div className="relative border border-amber-400/20 rounded-3xl px-3 sm:px-16 py-20 bg-linear-to-br from-amber-400/5 text-center overflow-hidden">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <HoleBackgroundDemo />
+            <GravityStarsBackground />
           </div>
 
-          <h2 className="relative z-10 font-serif relative text-4xl md:text-5xl leading-tight tracking-tight mb-4">
+          <h2 className="relative z-10 font-serif text-4xl md:text-5xl leading-tight tracking-tight mb-4">
             <GrayTitle>Your next interview</GrayTitle>
             <br />
             <GoldTitle>starts here</GoldTitle>
           </h2>
 
-          <p className="relative z-10 text-stone-400 font-light text-sm mb-11">
+          <p className="relative z-10 text-stone-400 font-medium text-sm mb-11">
             Join thousands of engineers already levelling up on Preply.
           </p>
 
